@@ -4,3 +4,88 @@
 .instagram-icon:hover {
   color: red;
 } */
+
+:root {
+  --primary: #6b46c1;
+  --secondary: #718096;
+  --black: #000;
+  --light-black: #454444;
+  --white: #fff;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Inter", sans-serif;
+}
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 15px;
+}
+h1 {
+  font-size: 60px;
+  font-weight: bold;
+  line-height: 1.25em;
+}
+
+p.base {
+  font-size: 30px;
+  line-height: 1.25em;
+}
+
+/* Navbar CSS */
+nav.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+}
+nav .nav-lists {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: var(--light-black);
+}
+nav .nav-lists a {
+  color: var(--light-black);
+  text-decoration: none;
+}
+nav .nav-lists .search-box {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+nav .nav-lists input {
+  border: none;
+}
+
+/* Banner CSS */
+.banner-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.banner-section .content {
+  margin: auto;
+}
+.banner-section .content .title h1 {
+  position: relative;
+}
+.banner-section .content .title h1 img {
+  position: absolute;
+  bottom: 0;
+}
+.banner-section .content p {
+  margin-top: 20px;
+  color: var(--light-black);
+}
