@@ -42,6 +42,12 @@ h3 {
   line-height: 1.25em;
   margin-bottom: 0.25em;
 }
+h4 {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1.25em;
+  margin-bottom: 0.25em;
+}
 
 p.base {
   font-size: 30px;
@@ -86,7 +92,7 @@ nav .nav-lists input {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  padding: 40px 0;
+  padding: 70px 0;
 }
 
 .banner-section .content {
@@ -100,6 +106,6 @@ nav .nav-lists input {
   bottom: 0;
 }
 .banner-section .content p {
-  margin-top: 20px;
+  margin-top: 30px;
   color: var(--light-black);
 }
