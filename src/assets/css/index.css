@@ -61,6 +61,18 @@ p {
   color: var(--light-black);
 }
 
+button {
+  display: flex !important;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  background-color: var(--primary);
+  color: var(--white);
+  border: none;
+  font-weight: 600;
+}
+
 /* Navbar CSS */
 nav.navbar {
   display: flex;
