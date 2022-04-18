@@ -1,15 +1,17 @@
 import * as Images from "../../assets/images";
+import * as Icons from "../../assets/icons";
+import { Button } from "../shared/Button";
 import { Card } from "../shared/Card";
 import styles from "./blog.module.css";
 const BlogSection = () => {
   const blogs = [
     {
       id: 1,
-      title: "long established",
+      title: "long first",
       description:
         "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that....",
       created_at: "May 20th 2020",
-      img: Images.Blog_2_Img,
+      img: Images.Blog_1_Img,
     },
     {
       id: 2,
@@ -17,7 +19,7 @@ const BlogSection = () => {
       description:
         "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that....",
       created_at: "May 20th 2021",
-      img: Images.Blog_3_Img,
+      img: Images.Blog_2_Img,
     },
     {
       id: 3,
@@ -25,9 +27,29 @@ const BlogSection = () => {
       description:
         "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that....",
       created_at: "May 20th 2022",
+      img: Images.Blog_3_Img,
+    },
+    {
+      id: 4,
+      title: "long established 4",
+      description:
+        "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that....",
+      created_at: "May 20th 2023",
+      img: Images.Blog_4_Img,
+    },
+    {
+      id: 5,
+      title: "long established 4",
+      description:
+        "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that....",
+      created_at: "May 20th 2023",
       img: Images.Blog_4_Img,
     },
   ];
+
+  const firstBlog = blogs[0];
+
+  const filteredBlogs = blogs.slice(1, 4);
 
   //   Styling Method
   /* const h3Styles = {
@@ -36,33 +58,32 @@ const BlogSection = () => {
     fontSize: "50px",
   }; */
 
+  const handleSeeMoreClick = () => {
+    alert("See More Button Clicked!");
+  };
+  const nextButtonClick = () => {
+    alert("Next Button Clicked!");
+  };
+
   return (
     <>
       <div className="blog-section">
         <div className={styles.main_blog}>
           <div className={styles.content}>
-            <h3>long established</h3>
-            <p>
-              It is a long established fact that a reader will be distracted by
-              the readable content of a page when looking at its layout. The
-              point of using Lorem Ipsum is that....
-            </p>
+            <h3>{firstBlog.title}</h3>
+            <p>{firstBlog.description}</p>
             <div className={styles.details}>
-              <p>May 20th 2020</p>
+              <p>{firstBlog.created_at}</p>
               <p>Read More</p>
             </div>
           </div>
           <div className={styles.img}>
-            <img
-              src={Images.Blog_1_Img}
-              className={styles.main_blog_img}
-              alt=""
-            />
+            <img src={firstBlog.img} className={styles.main_blog_img} alt="" />
           </div>
         </div>
         {/* Other Blogs */}
         <div className={styles.blog_lists}>
-          {blogs.map((blog, index) => {
+          {filteredBlogs.map((blog, index) => {
             return (
               <Card
                 key={index}
@@ -95,6 +116,16 @@ const BlogSection = () => {
             doloremque natus illum "
             uploadedDate="May 20th 2022"
           /> */}
+        </div>
+
+        {/* Button */}
+        <div className={styles.btn_right}>
+          <Button
+            title="See More"
+            handleClick={handleSeeMoreClick}
+            Icon={Icons.ArrowDownIcon}
+          />
+          <Button title="Next" handleClick={nextButtonClick} />
         </div>
       </div>
     </>
