@@ -71,6 +71,7 @@ button {
   color: var(--white);
   border: none;
   font-weight: 600;
+  cursor: pointer;
 }
 
 /* Navbar CSS */
@@ -120,4 +121,28 @@ nav .nav-lists input {
 .banner-section .content p {
   margin-top: 30px;
   color: var(--light-black);
+}
+
+/* Article CSS */
+.article-main-img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  margin-top: 30px;
+  /* object-position: top; */
+}
+.article-title,
+.article-description {
+  margin: 0 80px 40px;
+}
+
+.article-title {
+  padding-top: 40px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #00000080;
+}
+
+.article-title > div {
+  display: flex;
+  gap: 20px;
 }

@@ -1,5 +1,5 @@
 const Button = (props) => {
-  const { title, handleClick, Icon, iconPosition = "right" } = props;
+  const { title = "Button", handleClick, Icon, iconPosition = "right" } = props;
   // const handleClick = () => {
   //   alert("Button Component!");
   // };

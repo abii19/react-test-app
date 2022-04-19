@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import * as Images from "../../assets/images";
 import * as Icons from "../../assets/icons";
 import { Button } from "../shared/Button";
@@ -12,6 +13,7 @@ const BlogSection = () => {
         "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that....",
       created_at: "May 20th 2020",
       img: Images.Blog_1_Img,
+      written_by: "John Doe",
     },
     {
       id: 2,
@@ -20,6 +22,7 @@ const BlogSection = () => {
         "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that....",
       created_at: "May 20th 2021",
       img: Images.Blog_2_Img,
+      written_by: "John Doe",
     },
     {
       id: 3,
@@ -28,6 +31,7 @@ const BlogSection = () => {
         "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that....",
       created_at: "May 20th 2022",
       img: Images.Blog_3_Img,
+      written_by: "John Doe",
     },
     {
       id: 4,
@@ -36,6 +40,7 @@ const BlogSection = () => {
         "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that....",
       created_at: "May 20th 2023",
       img: Images.Blog_4_Img,
+      written_by: "John Doe",
     },
     {
       id: 5,
@@ -44,6 +49,7 @@ const BlogSection = () => {
         "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that....",
       created_at: "May 20th 2023",
       img: Images.Blog_4_Img,
+      written_by: "John Doe",
     },
   ];
 
@@ -61,9 +67,6 @@ const BlogSection = () => {
   const handleSeeMoreClick = () => {
     alert("See More Button Clicked!");
   };
-  const nextButtonClick = () => {
-    alert("Next Button Clicked!");
-  };
 
   return (
     <>
@@ -74,7 +77,7 @@ const BlogSection = () => {
             <p>{firstBlog.description}</p>
             <div className={styles.details}>
               <p>{firstBlog.created_at}</p>
-              <p>Read More</p>
+              <Link to={`/article/${firstBlog.id}`}>Read More</Link>
             </div>
           </div>
           <div className={styles.img}>
@@ -94,7 +97,6 @@ const BlogSection = () => {
               />
             );
           })}
-
           {/* <Card
             title="long established"
             description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
@@ -125,7 +127,6 @@ const BlogSection = () => {
             handleClick={handleSeeMoreClick}
             Icon={Icons.ArrowDownIcon}
           />
-          <Button title="Next" handleClick={nextButtonClick} />
         </div>
       </div>
     </>
