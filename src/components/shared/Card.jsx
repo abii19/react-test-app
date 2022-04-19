@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom";
+
 const Card = (props) => {
-  const { title, description, created_at, img } = props.blog;
+  const { id, title, description, created_at, img } = props.blog;
   // const {blog} = props;
   //const {title, desc} = blog;
 
@@ -30,7 +32,7 @@ const Card = (props) => {
           <p>{description}</p>
           <div style={cardFooterStyles}>
             <div>{created_at}</div>
-            <a href="/">Read More</a>
+            <Link to={`/article/${id}`}>Read More</Link>
           </div>
         </div>
       </div>
