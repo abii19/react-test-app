@@ -101,6 +101,7 @@ nav .nav-lists input {
 }
 
 /* Banner CSS */
+
 .banner-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -145,4 +146,31 @@ nav .nav-lists input {
 .article-title > div {
   display: flex;
   gap: 20px;
+}
+
+/* Footer */
+.footer {
+  border-top: 1px solid var(--light-black);
+  margin-top: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+}
+.footer-content p {
+  color: var(--black);
+}
+.footer-icons {
+  display: flex;
+  gap: 15px;
+  color: var(--light-black);
+}
+
+@media screen and (max-width: 768px) {
+  .banner-section {
+    grid-template-columns: 1fr;
+    /* align-items: center; */
+  }
 }

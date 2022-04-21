@@ -1,71 +1,34 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import * as Images from "../../assets/images";
 import * as Icons from "../../assets/icons";
 import { Button } from "../shared/Button";
 import { Card } from "../shared/Card";
 import styles from "./blog.module.css";
-const BlogSection = () => {
-  const blogs = [
-    {
-      id: 1,
-      title: "long first",
-      description:
-        "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that....",
-      created_at: "May 20th 2020",
-      img: Images.Blog_1_Img,
-      written_by: "John Doe",
-    },
-    {
-      id: 2,
-      title: "long established 2",
-      description:
-        "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that....",
-      created_at: "May 20th 2021",
-      img: Images.Blog_2_Img,
-      written_by: "John Doe",
-    },
-    {
-      id: 3,
-      title: "long established 3",
-      description:
-        "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that....",
-      created_at: "May 20th 2022",
-      img: Images.Blog_3_Img,
-      written_by: "John Doe",
-    },
-    {
-      id: 4,
-      title: "long established 4",
-      description:
-        "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that....",
-      created_at: "May 20th 2023",
-      img: Images.Blog_4_Img,
-      written_by: "John Doe",
-    },
-    {
-      id: 5,
-      title: "long established 4",
-      description:
-        "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that....",
-      created_at: "May 20th 2023",
-      img: Images.Blog_4_Img,
-      written_by: "John Doe",
-    },
-  ];
+import { blogs } from "../models/blogs";
 
+const BlogSection = () => {
   const firstBlog = blogs[0];
 
-  const filteredBlogs = blogs.slice(1, 4);
+  const [filteredBlogs, setFilteredBlogs] = useState([]);
+  const [lastIndex, setLastIndex] = useState(4);
 
-  //   Styling Method
-  /* const h3Styles = {
-    color: "green",
-    fontWeight: "600",
-    fontSize: "50px",
-  }; */
+  useEffect(() => {
+    setFilteredBlogs(blogs.slice(1, lastIndex)); //4 //7
+    // eslint-disable-next-line
+  }, [lastIndex]);
+
+  // const filteredBlogs = blogs.slice(1, 4);
 
   const handleSeeMoreClick = () => {
-    alert("See More Button Clicked!");
+    // const newLastIndex = lastIndex + 3; //7
+    // setLastIndex(newLastIndex); //7
+    // setFilteredBlogs(blogs.slice(1, newLastIndex)); //7
+
+    // if (blogs.length < lastIndex) {
+    //   alert("No more blogs!");
+    // } else {
+    setLastIndex(lastIndex + 3); //7
+    // }
   };
 
   return (
@@ -121,13 +84,15 @@ const BlogSection = () => {
         </div>
 
         {/* Button */}
-        <div className={styles.btn_right}>
-          <Button
-            title="See More"
-            handleClick={handleSeeMoreClick}
-            Icon={Icons.ArrowDownIcon}
-          />
-        </div>
+        {blogs.length > lastIndex && (
+          <div className={styles.btn_right}>
+            <Button
+              title="See More"
+              handleClick={handleSeeMoreClick}
+              Icon={Icons.ArrowDownIcon}
+            />
+          </div>
+        )}
       </div>
     </>
   );
