@@ -174,3 +174,15 @@ nav .nav-lists input {
     /* align-items: center; */
   }
 }
+
+/* Forms */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+.form-group input,
+.form-group textarea {
+  margin-top: 4px;
+  padding: 6px;
+}
