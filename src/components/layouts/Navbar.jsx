@@ -9,6 +9,21 @@ import * as Icons from "../../assets/icons";
 // import InstagramIcon from "../../assets/icons/InstagramIcon.svg";
 
 const Navbar = () => {
+  const routes = [
+    {
+      path: "/",
+      name: "Home",
+    },
+    {
+      path: "/article",
+      name: "Articles",
+    },
+    {
+      path: "/posts",
+      name: "Posts",
+    },
+  ];
+
   return (
     <>
       <nav className="navbar container">
@@ -20,8 +35,11 @@ const Navbar = () => {
             <Icons.SearchIcon />
             <input type="text" className="" placeholder="Search..." />
           </div>
-          <Link to="/">Home</Link>
-          <Link to="/article">Articles</Link>
+          {routes.map((route) => (
+            <Link key={route.name} to={route.path}>
+              {route.name}
+            </Link>
+          ))}
           <Icons.InstagramIcon />
           <Icons.TwitterIcon />
           <Icons.LinkedinIcon />

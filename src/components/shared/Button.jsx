@@ -1,10 +1,16 @@
 const Button = (props) => {
-  const { title = "Button", handleClick, Icon, iconPosition = "right" } = props;
+  const {
+    type = "button",
+    title = "Button",
+    handleClick,
+    Icon,
+    iconPosition = "right",
+  } = props;
   // const handleClick = () => {
   //   alert("Button Component!");
   // };
   return (
-    <button type="button" className="" onClick={handleClick}>
+    <button type={type} className="" onClick={handleClick}>
       {Icon && iconPosition === "left" && (
         <span>
           <Icon />

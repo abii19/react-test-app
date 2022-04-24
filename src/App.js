@@ -4,6 +4,7 @@ import ArticlePage from "./components/article/ArticlePage";
 import HomePage from "./components/home/HomePage";
 import Layout from "./components/layouts/Layout";
 import PageNotFound from "./components/pages/PageNotFound";
+import Posts from "./components/posts/Posts";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
             <Route index element={<HomePage />} />
             <Route path="/article" element={<ArticlePage />} />
             <Route path="/article/:articleId" element={<ArticleDetails />} />
+            <Route path="/posts" element={<Posts />} />
           </Route>
           <Route path="*" element={<PageNotFound />} />
         </Routes>
