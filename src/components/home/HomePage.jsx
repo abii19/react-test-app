@@ -1,12 +1,12 @@
 import BannerSection from "./BannerSection";
 import BlogSection from "./BlogSection";
 
-const HomePage = () => {
+const HomePage = ({ blogs }) => {
   return (
     <>
       <div className="container">
         <BannerSection />
-        <BlogSection />
+        <BlogSection blogs={blogs} />
       </div>
     </>
   );

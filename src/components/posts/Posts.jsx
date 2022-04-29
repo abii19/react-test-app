@@ -2,15 +2,18 @@ import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { Button } from "../shared";
 
-const Posts = () => {
-  const [blogs, setBlogs] = useState([]);
+const Posts = ({ blogs, setBlogs }) => {
+  // const [blogs, setBlogs] = useState([]);
   // console.log(blogs);
 
-  const [values, setValues] = useState({
+  const initialState = {
     title: "",
     author: "",
     description: "",
-  });
+    img: "https://images.unsplash.com/photo-1651153491779-7b9b28020615?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+  };
+
+  const [values, setValues] = useState(initialState);
   const [isEdit, setIsEdit] = useState(false);
 
   const handleChange = (e) => {
@@ -24,11 +27,7 @@ const Posts = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setBlogs([...blogs, { id: uuidv4(), ...values }]);
-    setValues({
-      title: "",
-      author: "",
-      description: "",
-    });
+    setValues(initialState);
   };
 
   const deletePost = (id) => {
@@ -53,11 +52,7 @@ const Posts = () => {
 
     setBlogs([values, ...filteredBlogs]);
 
-    setValues({
-      title: "",
-      author: "",
-      description: "",
-    });
+    setValues(initialState);
     setIsEdit(false);
   };
 
@@ -110,6 +105,7 @@ const Posts = () => {
           {blogs.map((blog) => {
             return (
               <div key={blog.id}>
+                <img src={blog.img} alt="" width="200" height="200" />
                 <h3>{blog.title}</h3>
                 <p>{blog.author}</p>
                 <p>{blog.description}</p>

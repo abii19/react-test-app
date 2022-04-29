@@ -4,10 +4,12 @@ import * as Icons from "../../assets/icons";
 import { Button } from "../shared/Button";
 import { Card } from "../shared/Card";
 import styles from "./blog.module.css";
-import { blogs } from "../models/blogs";
+// import { blogs } from "../models/blogs";
 
-const BlogSection = () => {
-  const firstBlog = blogs[0];
+const BlogSection = ({ blogs }) => {
+  console.log(blogs);
+
+  const firstBlog = blogs.length > 0 && blogs[0];
 
   const [filteredBlogs, setFilteredBlogs] = useState([]);
   const [lastIndex, setLastIndex] = useState(4);
@@ -34,19 +36,26 @@ const BlogSection = () => {
   return (
     <>
       <div className="blog-section">
-        <div className={styles.main_blog}>
-          <div className={styles.content}>
-            <h3>{firstBlog.title}</h3>
-            <p>{firstBlog.description}</p>
-            <div className={styles.details}>
-              <p>{firstBlog.created_at}</p>
-              <Link to={`/article/${firstBlog.id}`}>Read More</Link>
+        {Object.keys(firstBlog).length > 0 && (
+          <div className={styles.main_blog}>
+            <div className={styles.content}>
+              <h3>{firstBlog.title}</h3>
+              <p>{firstBlog.description}</p>
+              <div className={styles.details}>
+                <p>{firstBlog.created_at}</p>
+                <Link to={`/article/${firstBlog.id}`}>Read More</Link>
+              </div>
+            </div>
+            <div className={styles.img}>
+              <img
+                src={firstBlog.img}
+                className={styles.main_blog_img}
+                alt=""
+              />
             </div>
           </div>
-          <div className={styles.img}>
-            <img src={firstBlog.img} className={styles.main_blog_img} alt="" />
-          </div>
-        </div>
+        )}
+
         {/* Other Blogs */}
         <div className={styles.blog_lists}>
           {filteredBlogs.map((blog, index) => {
