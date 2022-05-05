@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { Button } from "../shared";
+// import axios from "axios";
+import { postPosts } from "./postsFunctions";
 
 const Posts = ({ blogs, setBlogs }) => {
-  // const [blogs, setBlogs] = useState([]);
-  // console.log(blogs);
-
   const initialState = {
     title: "",
     author: "",
@@ -24,9 +23,28 @@ const Posts = ({ blogs, setBlogs }) => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setBlogs([...blogs, { id: uuidv4(), ...values }]);
+    const data = {
+      id: uuidv4(),
+      ...values,
+    };
+
+    postPosts(data);
+
+    // try {
+    //   const response = await axios.post("http://localhost:3500/posts", data);
+    //   console.log(response);
+    // } catch (error) {
+    //   console.log(error);
+    // }
+
+    // await axios
+    //   .post("http://localhost:3500/posts", data)
+    //   .then((response) => console.log(response))
+    //   .catch((error) => console.log(error));
+
     setValues(initialState);
   };
 

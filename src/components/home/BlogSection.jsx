@@ -5,9 +5,21 @@ import { Button } from "../shared/Button";
 import { Card } from "../shared/Card";
 import styles from "./blog.module.css";
 // import { blogs } from "../models/blogs";
+import { fetchPosts } from "../posts/postsFunctions";
 
-const BlogSection = ({ blogs }) => {
-  console.log(blogs);
+const BlogSection = () => {
+  // console.log(blogs);
+
+  const [blogs, setBlogs] = useState([]);
+
+  useEffect(() => {
+    const renderPosts = async () => {
+      const data = await fetchPosts();
+      console.log(data);
+      setBlogs(data);
+    };
+    renderPosts();
+  }, []);
 
   const firstBlog = blogs.length > 0 && blogs[0];
 
@@ -17,7 +29,7 @@ const BlogSection = ({ blogs }) => {
   useEffect(() => {
     setFilteredBlogs(blogs.slice(1, lastIndex)); //4 //7
     // eslint-disable-next-line
-  }, [lastIndex]);
+  }, [lastIndex, blogs]);
 
   // const filteredBlogs = blogs.slice(1, 4);
 
