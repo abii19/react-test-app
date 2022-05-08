@@ -77,7 +77,7 @@ const Posts = ({ blogs, setBlogs }) => {
   return (
     <>
       <div className="container">
-        <h2>Add Posts</h2>
+        <h2 className="text-red-800">Add Posts</h2>
         <br />
         <br />
         <form onSubmit={isEdit ? handleUpdate : handleSubmit}>
